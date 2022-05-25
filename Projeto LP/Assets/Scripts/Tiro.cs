@@ -22,4 +22,12 @@ public class Tiro : MonoBehaviour
     void Destroi(){
         Destroy(gameObject);
     }
+
+    void OnTriggerEnter(Collider colisao){
+        if(colisao.name == "Player"){
+            Debug.Log("Atingiu");
+            colisao.gameObject.GetComponent<Player>().vida -= 50;
+            Destroi();
+        }
+    }
 }
