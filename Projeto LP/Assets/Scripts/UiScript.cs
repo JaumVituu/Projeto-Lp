@@ -7,6 +7,7 @@ public class UiScript : MonoBehaviour
 {
     public GameObject player;
     public Text texto;
+    int vidaPlayer;
     void Start()
     {
         
@@ -15,9 +16,15 @@ public class UiScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        vidaPlayer = player.GetComponent<Player>().vida;
         texto = GetComponent<Text>();
         if (gameObject.tag == "VidaUI"){
-            texto.text = "Vida: " + player.GetComponent<Player>().vida.ToString() + "%";
+            if (vidaPlayer >= 0){
+                texto.text = "Vida: " + vidaPlayer.ToString() + "%";
+            }
+            if (vidaPlayer < 0){
+                texto.text = "Vida: 0%";
+            }
         }
     }
 }
