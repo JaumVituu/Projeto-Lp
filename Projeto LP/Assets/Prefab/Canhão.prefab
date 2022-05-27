@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 737051950854054507}
   - component: {fileID: 3305219441406170785}
   - component: {fileID: 4188323671352272509}
+  - component: {fileID: -3770980565760106137}
   m_Layer: 0
   m_Name: "Canh\xE3o"
   m_TagString: Untagged
@@ -96,3 +97,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tiroPrefab: {fileID: 1338882861219277400, guid: 138a77030990caa48b1f21603bff96eb, type: 3}
   posicaoAtual: {x: 0, y: 0, z: 0}
+--- !u!65 &-3770980565760106137
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3953742528541718388}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.02451016, y: 0.029062398, z: 0.025365861}
+  m_Center: {x: 0.0000008060597, y: 0.004531201, z: -0.0026829322}

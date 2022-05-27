@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     Vector3 velocidade;
     public int vida;
     float tempoMorte;
+    public MeshRenderer mesh;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +21,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         Debug.Log(vida);
+        if(vida >0){
         if(Input.GetKey(KeyCode.D)){
             velocidade.z = 0.02f;
             Movimentar(velocidade);
@@ -42,8 +44,8 @@ public class Player : MonoBehaviour
             Movimentar(velocidade);
             velocidade.x = 0.0f;
         }
-    
-        if(vida == 0){
+        }
+        if(vida <= 0){
             Morrer(); 
         }
     }
@@ -53,7 +55,9 @@ public class Player : MonoBehaviour
     }
 
     void Morrer(){
+
         tempoMorte += Time.deltaTime;
+        mesh.enabled = false;
         if(tempoMorte >= 1f){
             SceneManager.LoadScene("GameOver");
         }
