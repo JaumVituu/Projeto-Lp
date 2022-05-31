@@ -6,6 +6,7 @@ public class Cannon : MonoBehaviour
 {
     public GameObject tiroPrefab;
     public Vector3 posicaoAtual;
+    public LayerMask layerMask;
     float tempoTiro;
 
     void Start()
@@ -26,7 +27,7 @@ public class Cannon : MonoBehaviour
     void DetectPlayer(){
         RaycastHit hit;
         Ray ray = new Ray(posicaoAtual,new Vector3(0,0,-1));
-        if (Physics.Raycast(ray,out hit,9f)){
+        if (Physics.Raycast(ray,out hit,9f,layerMask)){
             Shoot();
         }
     }

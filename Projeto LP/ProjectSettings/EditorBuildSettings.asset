@@ -9,9 +9,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Fase 1.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
-    path: Assets/Scenes/GameOver.unity
+    path: Assets/Scenes/Fim de jogo.unity
     guid: 15b67bff90a5cbc478e6edccd03cb009
   - enabled: 1
     path: Assets/Scenes/Fase 2.unity
     guid: 9252ccebba2091849bab23ae4c25b469
+  - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: eee38b96e22f9f949bbf436d6037b093
   m_configObjects: {}

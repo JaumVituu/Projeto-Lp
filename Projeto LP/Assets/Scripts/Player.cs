@@ -9,9 +9,11 @@ public class Player : MonoBehaviour
     public int vida;
     float tempoMorte;
     public MeshRenderer mesh;
+    public bool gravidade;
     // Start is called before the first frame update
     void Start()
     {
+        gravidade = true;
         velocidade.z = 0f;
         vida = 100;
         
@@ -47,6 +49,18 @@ public class Player : MonoBehaviour
         if(vida <= 0){
             Morrer(); 
         }
+        if (gravidade == false){
+            this.rigidbody.useGravity = false;
+
+            if (Input.GetKey("space")){
+                velocidade.y = 0.03f;
+                Movimentar(velocidade);
+                velocidade.y = 0.0f;
+            }
+        }
+        if (gravidade == true){
+            this.rigidbody.useGravity = true;
+        }
     }
 
     void Movimentar(Vector3 velocidade){
@@ -58,7 +72,7 @@ public class Player : MonoBehaviour
         tempoMorte += Time.deltaTime;
         mesh.enabled = false;
         if(tempoMorte >= 1f){
-            SceneManager.LoadScene("GameOver");
+            SceneManager.LoadScene("Fim de jogo");
         }
 
     }
