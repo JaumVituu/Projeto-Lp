@@ -21,6 +21,7 @@ Existe uma parede transparente azul que, caso colida com o jogador, se destrói 
    - Ao apertar o control esquerdo, o jogador vai para baixo;
    - Jogador perde a vida gradativamente;
    - Jogador fica azul;
+   
 Se o jogador já estiver com esses efeitos e colidir com o gravitador novamente, ele volta ao normal;
 O objetivo do jogo é colidir com a bandeira e passar para a próxima fase.
 A fase de "Fim de jogo" é composta pelos botões de Menu Principal e Sair do Jogo.
