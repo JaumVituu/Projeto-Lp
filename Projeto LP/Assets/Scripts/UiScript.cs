@@ -7,7 +7,7 @@ public class UiScript : MonoBehaviour
 {
     public GameObject player;
     public Text texto;
-    int vidaPlayer;
+    float vidaPlayer;
     void Start()
     {
         
@@ -20,7 +20,7 @@ public class UiScript : MonoBehaviour
         texto = GetComponent<Text>();
         if (gameObject.tag == "VidaUI"){
             if (vidaPlayer >= 0){
-                texto.text = "Vida: " + vidaPlayer.ToString() + "%";
+                texto.text = "Vida: " + Mathf.Round(vidaPlayer).ToString() + "%";
             }
             if (vidaPlayer < 0){
                 texto.text = "Vida: 0%";

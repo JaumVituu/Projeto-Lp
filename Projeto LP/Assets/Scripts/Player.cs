@@ -6,60 +6,69 @@ using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
     Vector3 velocidade;
-    public int vida;
+    public float vida;
+	public Color corSecundaria;
+	public Color corPrimaria;
     float tempoMorte;
     public MeshRenderer mesh;
     public bool gravidade;
-    // Start is called before the first frame update
+    
     void Start()
-    {
+    {	
         gravidade = true;
         velocidade.z = 0f;
-        vida = 100;
+		vida = 100;
         
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(vida >0){
+        if(vida >0f){
         if(Input.GetKey(KeyCode.D)){
-            velocidade.z = 0.035f;
+            velocidade.z = 5f*Time.deltaTime;
             Movimentar(velocidade);
             velocidade.z = 0f;
         }
         if(Input.GetKey(KeyCode.A)){
-            velocidade.z = -0.03f;
+            velocidade.z = -5f*Time.deltaTime;
             Movimentar(velocidade);
             velocidade.z = 0f;
         }
 
         if(Input.GetKey(KeyCode.W)){
-            velocidade.x = -0.03f;
+            velocidade.x = -5f*Time.deltaTime;
             Movimentar(velocidade);
             velocidade.x = 0.0f;
         }
 
         if(Input.GetKey(KeyCode.S)){
-            velocidade.x = 0.03f;
+            velocidade.x = 5f*Time.deltaTime;
             Movimentar(velocidade);
             velocidade.x = 0.0f;
         }
         }
-        if(vida <= 0){
+        if(vida <= 0f){
             Morrer(); 
         }
         if (gravidade == false){
-            this.rigidbody.useGravity = false;
-
+            this.GetComponent<Rigidbody>().useGravity = false;
+			vida -= 5f*Time.deltaTime;
+			GetComponent<Renderer>().material.color = corSecundaria;
             if (Input.GetKey("space")){
-                velocidade.y = 0.03f;
+                velocidade.y = 5f*Time.deltaTime;
+                Movimentar(velocidade);
+                velocidade.y = 0.0f;
+            }
+			if (Input.GetKey(KeyCode.LeftControl)){
+                velocidade.y = -5f*Time.deltaTime;
                 Movimentar(velocidade);
                 velocidade.y = 0.0f;
             }
         }
         if (gravidade == true){
-            this.rigidbody.useGravity = true;
+            this.GetComponent<Rigidbody>().useGravity = true;
+			GetComponent<Renderer>().material.color = corPrimaria;
         }
     }
 

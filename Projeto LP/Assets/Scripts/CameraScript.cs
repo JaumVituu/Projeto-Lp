@@ -11,6 +11,6 @@ public class CameraScript : MonoBehaviour
     void Update()
     {
         Vector3 delayedPosition = target.position + offset;  
-        transform.position = Vector3.Lerp(transform.position,delayedPosition,delay);
+        transform.position = Vector3.Lerp(transform.position,delayedPosition,delay*Time.deltaTime);
     }
 }

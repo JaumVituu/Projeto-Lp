@@ -16,7 +16,7 @@ public class Tiro : MonoBehaviour
     }
 
     void Movimenta(){
-        transform.Translate(new Vector3(0,0,-0.05f));
+        transform.Translate(new Vector3(0,0,-7f*Time.deltaTime));
     }
 
     void Destroi(){
@@ -26,7 +26,7 @@ public class Tiro : MonoBehaviour
     void OnTriggerEnter(Collider colisao){
         if(colisao.name == "Player"){
             Debug.Log("Atingiu");
-            colisao.gameObject.GetComponent<Player>().vida -= 50;
+            colisao.gameObject.GetComponent<Player>().vida -= 50f;
             Destroi();
         }
     }
